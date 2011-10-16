@@ -58,3 +58,10 @@ Run it and you should see the following output:
     (1,2)
     (0,2)
     (0,2)
+
+
+As you can see from the output above, the input graph is a square with a diagonal, which
+can easily be drawn in the plane without any edge crossings. This drawing defines three
+faces: the two faces inside the square that are split by the diagonal (represented by
+veritces 1 and 2 in the dual graph) and the outer face surrounding the square (represented
+by the vertex 0 in the dual graph.)
