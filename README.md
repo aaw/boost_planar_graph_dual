@@ -19,7 +19,8 @@ an edge between any two vertices representing faces that share an edge.
 #Planar graphs in the Boost Graph Library#
 
 The [Boost Graph Library](http://www.boost.org/doc/libs/release/libs/graph/doc/index.html) (BGL) 
-has a suite of algorithms for determining whether a graph is planar or not and drawing planar 
+has a [suite of algorithms](http://www.boost.org/doc/libs/release/libs/graph/doc/planar_graphs.html)
+ for determining whether a graph is planar or not and drawing planar 
 graphs without edge crossings. One of the algorithms provided in the BGL is a generic traversal
 of the faces of a planar graph. 
 
