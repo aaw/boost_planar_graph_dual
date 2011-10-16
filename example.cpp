@@ -5,9 +5,27 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/boyer_myrvold_planar_test.hpp>
 
-#include "create_dual_graph.hpp"
+#include "planar_dual.hpp"
 
 using namespace boost;
+
+template <typename Graph>
+void print_graph(Graph& g)
+{
+  std::cout << "vertices: " << std::endl;
+  typename graph_traits<Graph>::vertex_iterator vi, vi_end;
+  for(tie(vi, vi_end) = vertices(g); vi != vi_end; ++vi)
+  {
+    std::cout << *vi << std::endl;
+  }
+
+  std::cout << "edges: " << std::endl;
+  typename graph_traits<Graph>::edge_iterator ei, ei_end;
+  for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+  {
+    std::cout << *ei << std::endl;
+  }
+}
 
 int main(int argc, char** argv)
 {
@@ -51,18 +69,11 @@ int main(int argc, char** argv)
 
   create_dual_graph(g, dual_g, &embedding[0]);
 
-  std::cout << "Output graph looks like:" << std::endl;
-  std::cout << "vertices: " << std::endl;
-  graph_traits<graph>::vertex_iterator vi, vi_end;
-  for(tie(vi, vi_end) = vertices(dual_g); vi != vi_end; ++vi)
-  {
-    std::cout << *vi << std::endl;
-  }
-  std::cout << "edges: " << std::endl;
-  for(tie(ei, ei_end) = edges(dual_g); ei != ei_end; ++ei)
-  {
-    std::cout << *ei << std::endl;
-  }
+  std::cout << std::endl << "Input graph looks like:" << std::endl;
+  print_graph(g);
+
+  std::cout << std::endl << "Output graph looks like:" << std::endl;
+  print_graph(dual_g);
 
   return 0;
 }
